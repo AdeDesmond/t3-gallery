@@ -1,12 +1,13 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
 import { getMyImages } from "~/server/queries";
 export const dynamic = "force-dynamic";
 
 /* 
 course := https://youtu.be/d5x0JCZbAJs?list=PLL9Qm1L9sfSOIuxdd562eeAUYmtSvEEzU
 
-timestamp := 1:09mins:42secs
+timestamp := 1:31mins:42secs
 
 
 
@@ -18,7 +19,15 @@ async function Images() {
     <div className="flex flex-wrap gap-4">
       {posts.map((image) => (
         <div key={image.id} className=" flex w-48 flex-col">
-          <Image src={image.url} alt="image" width={300} height={60} />
+          <Link href={`/photos/${image.id}`}>
+            <Image
+              src={image.url}
+              alt="image"
+              style={{ objectFit: "contain" }}
+              width={480}
+              height={480}
+            />
+          </Link>
           <div>{image.name}</div>
         </div>
       ))}
