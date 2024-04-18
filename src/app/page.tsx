@@ -16,7 +16,7 @@ timestamp := 1:31mins:42secs
 async function Images() {
   const posts = await getMyImages();
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-4 p-4">
       {posts.map((image) => (
         <div key={image.id} className=" flex w-48 flex-col">
           <Link href={`/photos/${image.id}`}>

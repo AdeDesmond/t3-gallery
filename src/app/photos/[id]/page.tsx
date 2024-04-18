@@ -7,5 +7,9 @@ interface PhotoPageProps {
 }
 
 export default function PhotoPage({ params }: PhotoPageProps) {
-  return <FullPageImageView photoId={parseInt(params.id)} />;
+  return (
+    <div className="h-full">
+      <FullPageImageView photoId={parseInt(params.id)} />
+    </div>
+  );
 }
